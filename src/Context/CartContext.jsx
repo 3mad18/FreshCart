@@ -32,11 +32,16 @@ export default function CartContextProvider(props) {
       return null;
     }
   }
-
   async function addProductToCart(productId) {
     try {
       const response = await axios.post(`https://ecommerce.routemisr.com/api/v1/cart`, { productId }, { headers });
-      setCartItemsNo(prevCount => prevCount + 1); 
+      
+      console.log("Product added response:", response.data); 
+  
+      if (response.data.status === 'success') {
+        await getLoggedUserCart();
+      }
+  
       return response;
     } catch (error) {
       console.error("Error adding product:", error);
