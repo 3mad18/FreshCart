@@ -57,16 +57,19 @@ export default function ProductsDetails() {
       setLoading(null);
     }
   }
-
   const getProductsDetails = async () => {
     try {
       const { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`);
-      setProductDetails(data.data);
-    } catch {
+      if (data.data) {
+        setProductDetails(data.data);
+      } else {
+        toast.error('No product found.');
+      }
+    } catch (error) {
       toast.error('Failed to fetch product details.');
     }
   };
-
+  
   async function addToWishList(id) {
     try {
       let res = await addProductToWishList(id);

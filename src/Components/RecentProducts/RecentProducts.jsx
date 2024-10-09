@@ -35,13 +35,12 @@ export default function RecentProducts() {
       toast.error('Please log in to add products to the cart.', { duration: 2000 });
       return;
     }
-
+  
     setLoading(productId);
     try {
       let response = await addProductToCart(productId);
       if (response.data.status === 'success') {
-        let newCartItemsNo = cartItemsNo + 1;
-        setCartItemsNo(newCartItemsNo);
+        setCartItemsNo(prevCount => prevCount + 1); 
         toast.success(response.data.message, { duration: 2000 });
       } else {
         toast.error(response.data.message, { duration: 2000 });
@@ -52,6 +51,7 @@ export default function RecentProducts() {
       setLoading(null);
     }
   }
+  
 
   function getRecent() {
     return axios.get('https://ecommerce.routemisr.com/api/v1/products?page=2');

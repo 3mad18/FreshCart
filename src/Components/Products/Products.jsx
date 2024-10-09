@@ -27,8 +27,7 @@ export default function Products() {
     try {
       let response = await addProductToCart(productId);
       if (response.data.status === 'success') {
-        let newCartItemsNo = cartItemsNo + 1;
-        setCartItemsNo(newCartItemsNo);
+        setCartItemsNo(prevCount => prevCount + 1);
         toast.success(response.data.message, { duration: 2000 });
       } else {
         toast.error(response.data.message, { duration: 2000 });
@@ -39,6 +38,7 @@ export default function Products() {
       setLoading(null);
     }
   }
+  
 
   let { data, isError, error, isLoading } = useProducts();
 

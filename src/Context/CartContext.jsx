@@ -8,13 +8,13 @@ export default function CartContextProvider(props) {
     token: localStorage.getItem('userToken')
   };
   const [cartId, setCartId] = useState(null);
-  const [cartItemsNo, setCartItemsNo] = useState(0); // تعيين القيمة الافتراضية إلى 0
+  const [cartItemsNo, setCartItemsNo] = useState(0); 
 
   async function getLoggedUserCart() {
     try {
       const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/cart`, { headers });
       setCartId(response.data.data._id);
-      setCartItemsNo(response.data.numOfCartItems); // تحديث عدد العناصر في الكارت
+      setCartItemsNo(response.data.numOfCartItems); 
       return response;
     } catch (error) {
       console.error("Error fetching cart:", error);
@@ -25,7 +25,7 @@ export default function CartContextProvider(props) {
   async function deleteProductItem(productId) {
     try {
       const response = await axios.delete(`https://ecommerce.routemisr.com/api/v1/cart/${productId}`, { headers });
-      setCartItemsNo(prevCount => prevCount - 1); // تقليل عدد العناصر عند الحذف
+      setCartItemsNo(prevCount => prevCount - 1);
       return response;
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -36,13 +36,14 @@ export default function CartContextProvider(props) {
   async function addProductToCart(productId) {
     try {
       const response = await axios.post(`https://ecommerce.routemisr.com/api/v1/cart`, { productId }, { headers });
-      await getLoggedUserCart(); 
+      setCartItemsNo(prevCount => prevCount + 1); 
       return response;
     } catch (error) {
       console.error("Error adding product:", error);
       return null;
     }
   }
+  
 
   async function updateCartItemCount(productId, count) {
     try {

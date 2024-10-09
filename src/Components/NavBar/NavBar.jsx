@@ -8,7 +8,7 @@ import { WishListContext } from '../../Context/WishListContext';
 function MobileMenu({ isOpen, toggleMenu, userLogin, signOut, cartItemsNo, wishListCount }) {
     return (
         <div
-            className={`fixed top-0 backdrop-blur-lg bg-white left-0 p-6 right-0 shadow-lg transform ${isOpen ? 'translate-y-0' : '-translate-y-full'
+            className={`fixed top-0 backdrop-blur-lg bg-gray-100 left-0 p-6 right-0 shadow-lg transform ${isOpen ? 'translate-y-0' : '-translate-y-full'
                 } transition-transform duration-300 ease-in-out lg:hidden z-40`}
         >
             <ul className="flex flex-col items-center text-lg text-gray-600 gap-6 mt-16">
@@ -210,3 +210,6 @@ export default function NavBar() {
         </div>
     );
 }
+  
+
+
