@@ -19,7 +19,7 @@ export default function RecentProducts() {
   useEffect(() => {
     const savedWishList = JSON.parse(localStorage.getItem('wishList')) || {};
     setWishList(savedWishList);
-    
+
     const token = localStorage.getItem('userToken');
     if (token) {
       setUserToken(token);
@@ -35,12 +35,12 @@ export default function RecentProducts() {
       toast.error('Please log in to add products to the cart.', { duration: 2000 });
       return;
     }
-  
+
     setLoading(productId);
     try {
       let response = await addProductToCart(productId);
       if (response.data.status === 'success') {
-        setCartItemsNo(prevCount => prevCount + 1); 
+        setCartItemsNo(prevCount => prevCount + 1);
         toast.success(response.data.message, { duration: 2000 });
       } else {
         toast.error(response.data.message, { duration: 2000 });
@@ -51,7 +51,7 @@ export default function RecentProducts() {
       setLoading(null);
     }
   }
-  
+
 
   function getRecent() {
     return axios.get('https://ecommerce.routemisr.com/api/v1/products?page=2');
@@ -85,12 +85,12 @@ export default function RecentProducts() {
       let res = await addProductToWishList(id);
       if (res && res.status === 'success') {
         const isAdded = !wishList[id];
-  
+
         setWishList((prevWishList) => ({
           ...prevWishList,
-          [id]: isAdded, 
+          [id]: isAdded,
         }));
-  
+
         toast.success(isAdded ? 'Product added to wishlist' : 'Product removed from wishlist', {
           duration: 2000,
         });
@@ -101,7 +101,7 @@ export default function RecentProducts() {
       toast.error('Failed to update wishlist. Please try again later.', { duration: 2000 });
     }
   }
-  
+
 
   return (
     <>
@@ -110,32 +110,37 @@ export default function RecentProducts() {
         <title>Recent Products</title>
       </Helmet>
       <div className="frame">
-  <h1 className="text-4xl font-extrabold text-green-700 text-center">Recent Products</h1>
-  <div className="flex flex-wrap">
-    {data.map((product) => (
-      <div key={product._id} className='w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 px-2 py-5'>
-        <div className="product shadow rounded-lg">
-          <Link to={`/productdetails/${product._id}/${product.category.name}`}>
-            <img className='w-full' src={product.imageCover} alt={product.title} />
-          </Link>
-          <span className='block font-semibold mt-2 text-green-600 ml-1'>{product.category.name}</span>
-          <h3 className='text-lg font-normal text-gray-800 mb-4'>{product.title.split(' ').slice(0, 2).join(' ')}</h3>
-          <div className='flex justify-between items-center'>
-            <span className='price'>{product.price} EGP</span>
-            <span
-              onClick={() => addToWishList(product._id)}
-              className={`fa fa-heart fa-lg ml-12 ${wishList[product._id] ? 'text-red-600' : 'text-gray-300'} hover:text-red-600`}
-            ></span>
-            <span className='mr-2'>{product.ratingsAverage} <i className='fas fa-star text-yellow-500'></i></span>
-          </div>
-          <button onClick={() => addProduct(product._id)} className='btn'>
-            {loading === product._id ? <i className='fas fa-spinner fa-spin'></i> : 'Add to cart'}
-          </button>
+        <h1 className="text-4xl font-extrabold text-green-700 text-center">Recent Products</h1>
+        <div className="flex flex-wrap">
+          {data.map((product) => (
+            <div key={product._id} className='w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 px-2 py-5'>
+              <div className="product shadow rounded-lg">
+                <Link to={`/productdetails/${product._id}/${product.category.name}`}>
+                  <img className='w-full' src={product.imageCover} alt={product.title} />
+                </Link>
+                <div className='flex justify-between items-center mx-2 '>
+                <span className='block font-semibold mt-2 text-green-600 '>{product.category.name}</span>
+                    <span
+                      onClick={() => addToWishList(product._id)}
+                      className={`fa fa-heart fa-lg  mt-3 mx-1  ${wishList[product._id] ? 'text-red-600' : 'text-gray-300'} hover:text-red-600`}
+                    ></span>
+                    </div>
+                <h3 className='text-lg font-normal text-gray-800 mb-4'>{product.title.split(' ').slice(0, 2).join(' ')}</h3>
+                <div className='flex justify-between items-center mx-1 '>
+                  <span className='price'>{product.price} EGP</span>
+                  <div className="flex items-center ">
+                    <span className='mr-2'>{product.ratingsAverage} <i className='fas fa-star text-yellow-500'></i></span>
+                  </div>
+                </div>
+
+                <button onClick={() => addProduct(product._id)} className='btn'>
+                  {loading === product._id ? <i className='fas fa-spinner fa-spin'></i> : 'Add to cart'}
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
 
 
     </>

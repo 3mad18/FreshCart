@@ -174,14 +174,19 @@ export default function ProductsDetails() {
         <div className="product shadow">
           <Link to={`/productdetails/${product._id}/${product.category.name}`}>
             <img className='w-full' src={product.imageCover} alt={product.title} />
-            <span className='block font-semibold mt-2 text-green-600'>{product.category.name}</span>
-            <h3 className='text-lg font-normal text-gray-800 mb-4'>{product.title.split(' ').slice(0, 2).join(' ')}</h3>
-            <div className='flex justify-between items-center'>
-              <span>{product.price} EGP</span>
+            <div className='flex justify-between items-center mx-2 '>
+
+            <span className='block font-semibold mt-2 text-green-600 mx-1'>{product.category.name}</span>
               <span
                 onClick={() => addToWishList(product._id)}
-                className={`fa fa-heart fa-lg ml-14 hover:text-red-600 ${wishList[product._id] ? 'text-red-600' : 'text-gray-300'}`}
+                className={`fa fa-heart fa-lg mt-3 mx-1  hover:text-red-600 ${wishList[product._id] ? 'text-red-600' : 'text-gray-300'}`}
               ></span>
+            </div>
+            <div className='mx-2'>
+            <h3 className='text-lg font-normal text-gray-800 mb-4'>{product.title.split(' ').slice(0, 2).join(' ')}</h3>
+            </div>
+            <div className='flex justify-between items-center mx-2'>
+              <span>{product.price} EGP</span>
               <span>{product.ratingsAverage} <i className='fas fa-star text-yellow-500'></i></span>
             </div>
             <button onClick={() => addProduct(product._id)} className='btn'>
