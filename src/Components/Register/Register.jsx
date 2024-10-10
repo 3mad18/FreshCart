@@ -59,7 +59,7 @@ export default function Register() {
     onSubmit: handleRegistration
   });
   return (
-    <div className='py-8 max-w-xl mx-auto'>
+    <div className='py-8 max-w-xl mx-auto sm:px-10 md:px-8 px-4'>
       {apiError ? <div className="p-3 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-50 dark:text-red-600" role="alert">
         {apiError}
       </div> : null}

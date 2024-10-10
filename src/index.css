@@ -118,19 +118,3 @@
 .bg-glass {
   background-color: #2b2b3d2d;
 }
-@media (max-width: 640px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;  
-    align-items: center;      
-    min-height: 100vh;        
-    padding: 0 10px;        
-    overflow-x: hidden;       
-  }
-
-  .frame {
-    width: 100%;            
-    max-width: 480px;          
-  }
-}

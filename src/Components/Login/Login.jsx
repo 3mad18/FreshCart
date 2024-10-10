@@ -61,7 +61,7 @@ export default function Login() {
   });
 
   return (
-    <div className='py-8 max-w-xl mx-auto'>
+    <div className='py-8 max-w-xl mx-auto px-4 sm:px-10 md:px-8'>
       {apiError && (
         <div className="p-3 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
           {apiError}

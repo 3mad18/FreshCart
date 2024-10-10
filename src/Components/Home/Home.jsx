@@ -27,7 +27,7 @@ export default function Home() {
 
       {loading ? (
 
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-screen ">
           <HashLoader color="green" />
         </div>
       ) : (

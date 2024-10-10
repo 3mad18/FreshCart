@@ -95,7 +95,7 @@ export default function Products() {
 
         <div className="flex flex-wrap">
           {data?.data.data.map((product) => (
-            <div key={product._id} className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 px-2 py-4'>
+            <div key={product._id} className='w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 px-2 py-4 '>
               <div className="product shadow rounded-lg">
                 <Link to={`/productdetails/${product._id}/${product.category.name}`}>
                   <img className='w-full' src={product.imageCover} alt={product.title} />

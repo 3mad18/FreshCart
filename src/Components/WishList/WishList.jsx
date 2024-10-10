@@ -111,11 +111,11 @@ export default function WishList() {
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="flex space-x-2 ml-auto">
+                                    <div className="flex gap-2 flex-row-reverse space-x-reverse space-x-2 lg:flex-row lg:ml-auto justify-between w-full lg:w-auto mt-4 lg:mt-0">
                                         <button
                                             onClick={() => handleRemoveItem(product._id)}
                                             disabled={loadingRemove === product._id}
-                                            className="text-red-900  bg-red-400 p-2 rounded-lg hover:text-white hover:bg-red-800 hover:border-red-600 font-medium transition-colors duration-300"
+                                            className="gap-3 text-red-900 bg-red-400 p-2 rounded-lg hover:text-white hover:bg-red-800 hover:border-red-600 font-medium transition-colors duration-300 w-full lg:w-auto"
                                         >
                                             {loadingRemove === product._id ? (
                                                 <>
@@ -131,7 +131,7 @@ export default function WishList() {
                                         <button
                                             onClick={() => handleAddToCart(product._id)}
                                             disabled={loadingAddToCart === product._id}
-                                            className="text-green-800  bg-green-500 p-2 rounded-lg hover:text-white hover:bg-green-800 hover:border-green-600 font-medium transition-colors duration-300"
+                                            className="text-green-800 bg-green-500 p-2 rounded-lg hover:text-white hover:bg-green-800 hover:border-green-600 font-medium transition-colors duration-300 w-full lg:w-auto"
                                         >
                                             {loadingAddToCart === product._id ? (
                                                 <>

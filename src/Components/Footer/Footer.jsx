@@ -31,23 +31,23 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t-2 my-6"></div>
+                <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 justify-between items-center w-full">
+  <div className="flex items-center space-x-4">
+    <div className="font-light text-xl">Payment Partners</div>
+    <div className="flex items-center ml-6 space-x-4"> 
+      <i className="fa-brands fa-amazon mt-1 text-2xl" />
+      <i className="fa-brands fa-cc-paypal mt-1 text-2xl" />
+      <i className="fa-brands fa-cc-mastercard mt-1 text-2xl" />
+    </div>
+  </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center w-full">
-                  <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                    <div className="font-light text-xl">Payment Partners</div>
-                    <div className="flex items-center ml-6 space-x-4"> 
-                      <i className="fa-brands fa-amazon mt-1 text-2xl" />
-                      <i className="fa-brands fa-cc-paypal mt-1 text-2xl" />
-                      <i className="fa-brands fa-cc-mastercard mt-1 text-2xl" />
-                    </div>
-                  </div>
+  <div className="flex items-center space-x-4"> 
+    <div className="font-light text-lg">Get deliveries with FreshCart</div>
+    <i className="fa-brands fa-cc-apple-pay mt-1 text-2xl" />
+    <i className="fa-brands fa-google-play mt-1 text-2xl" />
+  </div>
+</div>
 
-                  <div className="flex items-center space-x-4 ml-auto"> 
-                    <div className="font-light text-lg">Get deliveries with FreshCart</div>
-                    <i className="fa-brands fa-cc-apple-pay mt-1 text-2xl" />
-                    <i className="fa-brands fa-google-play mt-1 text-2xl" />
-                  </div>
-                </div>
                 <div className="border-t-2 mt-6"></div>
               </div>
             </div>

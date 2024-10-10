@@ -109,12 +109,11 @@ export default function RecentProducts() {
         <meta charSet="utf-8" />
         <title>Recent Products</title>
       </Helmet>
-<div className="frame ">
+      <div className="frame">
   <h1 className="text-4xl font-extrabold text-green-700 text-center">Recent Products</h1>
-  <div className="row flex flex-wrap">
+  <div className="flex flex-wrap">
     {data.map((product) => (
-      <div key={product._id} 
-           className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 px-2 py-3'>
+      <div key={product._id} className='w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 px-2 py-5'>
         <div className="product shadow rounded-lg">
           <Link to={`/productdetails/${product._id}/${product.category.name}`}>
             <img className='w-full' src={product.imageCover} alt={product.title} />
@@ -129,7 +128,7 @@ export default function RecentProducts() {
             ></span>
             <span className='mr-2'>{product.ratingsAverage} <i className='fas fa-star text-yellow-500'></i></span>
           </div>
-          <button onClick={() => addProduct(product._id)} className='btn '>
+          <button onClick={() => addProduct(product._id)} className='btn'>
             {loading === product._id ? <i className='fas fa-spinner fa-spin'></i> : 'Add to cart'}
           </button>
         </div>
@@ -137,6 +136,7 @@ export default function RecentProducts() {
     ))}
   </div>
 </div>
+
 
     </>
   );

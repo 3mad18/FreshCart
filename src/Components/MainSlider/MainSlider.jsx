@@ -24,8 +24,8 @@ export default function MainSlider() {
 
   return (
     <div className="frame">
-      <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-3/4 mb-4 lg:mb-0 lg:mr-4">
+      <div className="flex flex-col md:flex-row  overflow-hidden">
+        <div className="w-full md:w-3/4 mb-8">
           <Slider {...settings}>
             <img src={mainslider1} alt="" className='w-full h-[400px] object-cover' />
             <img src={mainslider2} alt="" className='w-full h-[400px] object-cover' />
@@ -33,7 +33,7 @@ export default function MainSlider() {
           </Slider>
         </div>
 
-        <div className="w-full lg:w-1/4 flex flex-col space-y-4">
+        <div className="w-full md:w-1/4 flex flex-col  md:flex-col  mt-2 md:mt-0">
           <img src={slide1} alt="" className='w-full h-[200px] object-cover' />
           <img src={slide2} alt="" className='w-full h-[200px] object-cover' />
         </div>

@@ -30,7 +30,7 @@ function MobileMenu({ isOpen, toggleMenu, userLogin, signOut, cartItemsNo, wishL
                             <NavLink
                                 to={'products'}
                                 className={({ isActive }) =>
-                                    `p-2 rounded-lg border border-transparent text-md text-slate-900 font-serif hover:text-green-600${isActive ? ' text-gray-600 font-medium bg-green-200 border-green-400' : ''
+                                    `p-2 rounded-lg border border-transparent text-md ml-5 text-slate-900 font-serif hover:text-green-600${isActive ? ' text-gray-600 font-medium bg-green-200 border-green-400' : ''
                                     }`
                                 }
                                 onClick={toggleMenu}
@@ -42,7 +42,7 @@ function MobileMenu({ isOpen, toggleMenu, userLogin, signOut, cartItemsNo, wishL
                             <NavLink
                                 to={'categories'}
                                 className={({ isActive }) =>
-                                    `p-2 rounded-lg border border-transparent text-md text-slate-900 font-serif hover:text-green-600 ${isActive ? ' bg-green-200 border-green-400' : ''
+                                    `p-2 rounded-lg border border-transparent text-md ml-7 text-slate-900 font-serif hover:text-green-600 ${isActive ? ' bg-green-200 border-green-400' : ''
                                     }`
                                 }
                                 onClick={toggleMenu}
@@ -54,7 +54,7 @@ function MobileMenu({ isOpen, toggleMenu, userLogin, signOut, cartItemsNo, wishL
                             <NavLink
                                 to={'brands'}
                                 className={({ isActive }) =>
-                                    `p-2 rounded-lg border border-transparent text-md text-slate-900 font-serif hover:text-green-600${isActive ? ' text-gray-600 font-medium bg-green-200 border-green-400' : ''
+                                    `p-2 rounded-lg border border-transparent  text-md text-slate-900 font-serif hover:text-green-600${isActive ? ' text-gray-600 font-medium bg-green-200 border-green-400' : ''
                                     }`
                                 }
                                 onClick={toggleMenu}
@@ -62,19 +62,8 @@ function MobileMenu({ isOpen, toggleMenu, userLogin, signOut, cartItemsNo, wishL
                                 <i className="fa-solid fa-star mx-1"></i> Brands
                             </NavLink>
                         </li>
-                        <li>
-                            <span
-                                onClick={() => {
-                                    signOut();
-                                    toggleMenu();
-                                }}
-                                className='p-2 rounded-lg border border-transparent text-md text-slate-900 font-serif hover:text-red-600 cursor-pointer'
-                            >
-                                Sign Out <i className='fa fa-sign-out'></i>
-                            </span>
-                        </li>
 
-                        <li className="flex justify-center gap-4">
+                        <li className="flex justify-center ml-2  gap-4 pt-2">
                             <NavLink className='mx-2' to='cart'>
                                 <div className="relative">
                                     <i className='fa fa-cart-shopping text-2xl text-green-500 hover:text-green-600'></i>
@@ -89,6 +78,17 @@ function MobileMenu({ isOpen, toggleMenu, userLogin, signOut, cartItemsNo, wishL
                                 </div>
                             </NavLink>
                         </li>
+                        <li>
+                            <span
+                                onClick={() => {
+                                    signOut();
+                                    toggleMenu();
+                                }}
+                                className='p-2 rounded-lg border border-transparent text-md ml-4 text-slate-900 font-serif hover:text-red-600 cursor-pointer'
+                            >
+                                Sign Out <i className='fa fa-sign-out'></i>
+                            </span>
+                        </li>
                     </>
                 ) : (
                     <>
@@ -96,7 +96,7 @@ function MobileMenu({ isOpen, toggleMenu, userLogin, signOut, cartItemsNo, wishL
                             <NavLink
                                 to={'register'}
                                 className={({ isActive }) =>
-                                    `p-2 rounded-lg border border-transparent text-md text-slate-900 font-serif hover:text-green-600${isActive ? ' bg-green-200 border-green-400 text-gray-100' : ''
+                                    `p-2 rounded-lg border border-transparent text-md  text-slate-900 font-serif hover:text-green-600${isActive ? ' bg-green-200 border-green-400 text-gray-100' : ''
                                     }`
                                 }
                                 onClick={toggleMenu}
