@@ -31,17 +31,17 @@ export default function MainSlider() {
             <img 
               src={mainslider1} 
               alt="" 
-              className='w-full h-[200px] sm:h-[300px] md:h-[400px] object-cover' 
+              className='w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover' 
             />
             <img 
               src={mainslider2} 
               alt="" 
-              className='w-full h-[200px] sm:h-[300px] md:h-[400px] object-cover' 
+              className='w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover' 
             />
             <img 
               src={mainslider3} 
               alt="" 
-              className='w-full h-[200px] sm:h-[200px] md:h-[400px] object-cover' 
+              className='w-full h-[250px] sm:h-[200px] md:h-[400px] object-cover' 
             />
           </Slider>
         </div>
@@ -50,12 +50,12 @@ export default function MainSlider() {
           <img 
             src={slide1} 
             alt="" 
-            className='w-full h-[100px] sm:h-[150px] md:h-[200px] object-cover ' 
+            className='w-full h-[125px] sm:h-[150px] md:h-[200px] object-cover ' 
           />
           <img 
             src={slide2} 
             alt="" 
-            className='w-full h-[100px] sm:h-[150px] md:h-[200px] object-cover' 
+            className='w-full h-[125px] sm:h-[150px] md:h-[200px] object-cover' 
           />
         </div>
       </div>
