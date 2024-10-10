@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from "react-slick";
 import mainslider1 from '../../assets/images/images/slider-image-3.jpeg';
 import mainslider2 from '../../assets/images/images/slider-2.jpeg';
-import mainslider3 from '../../assets/images/images/grocery-banner-2.jpeg';
+import mainslider3 from '../../assets/images/images/blog-img-2.jpeg';
 import slide1 from '../../assets/images/images/slider-image-1.jpeg';
 import slide2 from '../../assets/images/images/slider-image-2.jpeg';
 
@@ -25,7 +25,6 @@ export default function MainSlider() {
   return (
     <div className="frame">
       <div className="flex flex-row md:flex-row overflow-hidden">
-        {/* Slider section */}
         <div className="w-2/3 md:w-3/4 mb-8">
           <Slider {...settings}>
             <img 
