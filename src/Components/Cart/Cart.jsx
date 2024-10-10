@@ -6,25 +6,26 @@ import './Cart.css';
 import { Helmet } from 'react-helmet';
 
 export default function Cart() {
-    const { clearCart, setCartItemsNo, getLoggedUserCart, updateCartItemCount, deleteProductItem, setCartId, cartId, cartItemsNo } = useContext(CartContext);
+    const {clearCart, setCartItemsNo, getLoggedUserCart, updateCartItemCount, deleteProductItem,  cartItemsNo } = useContext(CartContext);
     const [cartDetails, setCartDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [noCartInfo, setNoCartInfo] = useState(null);
+    const [cartId, setCartId] = useState(null);
 
     const navigate = useNavigate();
 
     async function getCartItem() {
-        setLoading(true);
-        const response = await getLoggedUserCart();
-        setCartItemsNo(response.data.numOfCartItems);
-        setCartDetails(response.data.data);
+        try {
+            const response = await getLoggedUserCart();
+            setCartDetails(response);
+            setCartId(response.data.data._id);
+        } catch (error)  {
+            console.error('Error fetching cart info:', error);
+        } finally {
+            
         setLoading(false);
-        setCartId(response.data.data._id);
-    }
-
-    async function updateCartCount(productId, count) {
-        const response = await updateCartItemCount(productId, count);
-        setCartDetails(response.data.data);
+    
+        }
     }
 
     async function deleteItem(productId) {
@@ -33,6 +34,12 @@ export default function Cart() {
         setCartItemsNo(response.data.numOfCartItems);
     }
 
+    async function updateCartCount(productId, count) {
+        const response = await updateCartItemCount(productId, count);
+        setCartDetails(response.data.data);
+    }
+
+  
     async function clearAllCart() {
         const response = await clearCart();
         if (response.data.message === "success") {
@@ -53,8 +60,14 @@ export default function Cart() {
     }
 
     useEffect(() => {
-        getCartItem();
+        if (localStorage.getItem('userToken')) {
+            getCartItem(); 
+        } else {
+            setCartDetails(null);
+            setNoCartInfo("No Products To Show");
+        }
     }, []);
+    
 
     if (loading) {
         return (

@@ -17,7 +17,6 @@ import { HashLoader } from 'react-spinners';
 import WishListContextProvider from './Context/WishListContext';
 
 
-
 let query = new QueryClient();
 
 let Home = lazy(() => import('./Components/Home/Home'));
@@ -110,6 +109,8 @@ let router = createHashRouter([
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
       { path: '*', element: <NotFound /> },
+      
+      
     ]
   },
 ]);

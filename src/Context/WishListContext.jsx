@@ -6,10 +6,14 @@ export const WishListContext = createContext();
 export default function WishListContextProvider({ children }) {
     const [wishListCount, setWishListCount] = useState(0);
 
-    const updateWishListCount = async () => {
-        const wishList = await getWishList();
-        setWishListCount(wishList.data.length);
-    };
+    function updateWishListCount(wishlist) {
+        if (wishlist && wishlist.length) {
+            setWishListCount(wishlist.length);
+        } else {
+            setWishListCount(0); 
+        }
+    }
+    
 
     const getHeaders = () => ({
         token: localStorage.getItem("userToken"),

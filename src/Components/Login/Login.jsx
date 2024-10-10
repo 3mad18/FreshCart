@@ -13,6 +13,7 @@ export default function Login() {
 
   const [apiError, setApiError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); 
 
   const handleLogin = async (formValues) => {
     setIsLoading(true);
@@ -96,7 +97,7 @@ export default function Login() {
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.password}
-            type="password"
+            type={showPassword ? "text" : "password"} 
             name="password"
             id="floating_password"
             className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-green-600 peer"
@@ -106,6 +107,12 @@ export default function Login() {
           <label htmlFor="floating_password" className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 peer-focus:text-green-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">
             Password
           </label>
+          <span
+            onClick={() => setShowPassword(!showPassword)} 
+            className="absolute right-0 top-3 cursor-pointer"
+          >
+            <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye text-gray-400'}`}></i>
+          </span>
         </div>
         {formik.errors.password && formik.touched.password && (
           <div className="p-3 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
